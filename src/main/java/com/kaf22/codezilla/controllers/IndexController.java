@@ -15,7 +15,7 @@ public class IndexController {
 
     @SneakyThrows
     @GetMapping("/open")
-    public void openDoor() {
+    public String openDoor() {
         GpioController gpio = GpioFactory.getInstance();
         GpioPinDigitalOutput pin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_29);
         pin.setShutdownOptions(true, PinState.LOW, PinPullResistance.OFF);
@@ -26,5 +26,7 @@ public class IndexController {
 
         gpio.shutdown();
         gpio.unprovisionPin(pin);
+
+        return "redirect:/";
     }
 }
