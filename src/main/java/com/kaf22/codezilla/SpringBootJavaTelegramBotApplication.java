@@ -9,14 +9,14 @@ public class SpringBootJavaTelegramBotApplication {
 
     public static void main(String[] args) {
 
-//        GpioController gpio = GpioFactory.getInstance();
-//        GpioPinDigitalOutput pin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_29);
-//        pin.setShutdownOptions(true, PinState.LOW, PinPullResistance.OFF);
-//
-//        pin.low();
-//
-//        gpio.shutdown();
-//        gpio.unprovisionPin(pin);
+        GpioController gpio = GpioFactory.getInstance();
+        GpioPinDigitalOutput pin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_29);
+        pin.setShutdownOptions(true, PinState.LOW, PinPullResistance.OFF);
+
+        pin.low();
+
+        gpio.shutdown();
+        gpio.unprovisionPin(pin);
 
         SpringApplication.run(SpringBootJavaTelegramBotApplication.class, args);
     }
